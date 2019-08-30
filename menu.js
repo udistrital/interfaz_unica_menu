@@ -1,25 +1,34 @@
 var userAction = function () {
-    console.log("calling");
-    var data = [{Nombre: 'CONTRATISTA'},{Nombre:"ESTUDIANTE"},{Nombre:"SUPERVISOR"}];
-    var promesa = new Promise(function (resolve, reject) {
-        document.getElementById("loading").setAttribute("class", "visible")
-        fetch('http://pruebasapi.intranetoas.udistrital.edu.co:8086/v1/aplicacion_rol/aplicacion_rol',{
-            method: 'POST', // or 'PUT'
-            body: JSON.stringify(data), // data can be string or {object}!
-            headers:{
-              'Content-Type': 'application/json'
-            }
-          }
-        )
-            .then(function (data) {
-                console.log("resolve")
-                document.getElementById("loading").setAttribute("class", "hidden");
-                resolve(data.json());
-            }).catch(function (e) {
-                reject(e);
-            });
-    });
-    return promesa;
+    if (window.localStorage.getItem("id_token")!==null){
+        var id_token=window.localStorage.getItem("id_token").split(".");
+        var payload=JSON.parse(atob(id_token[1]))
+        console.log(payload.role)
+        var data=[]
+        payload.role.forEach(function(element){
+            var rol={Nombre:element}
+            data.push(rol)        
+            })            
+        }
+console.log("calling");
+var promesa = new Promise(function (resolve, reject) {
+    document.getElementById("loading").setAttribute("class", "visible")
+    fetch('http://pruebasapi.intranetoas.udistrital.edu.co:8086/v1/aplicacion_rol/aplicacion_rol',{
+        method: 'POST', // or 'PUT'
+        body: JSON.stringify(data), // data can be string or {object}!
+        headers:{
+          'Content-Type': 'application/json'
+        }
+      }
+    )
+        .then(function (data) {
+            console.log("resolve")
+            document.getElementById("loading").setAttribute("class", "hidden");
+            resolve(data.json());
+        }).catch(function (e) {
+            reject(e);
+        });
+});
+return promesa;
 }
 
 function drawMenuApp() {
