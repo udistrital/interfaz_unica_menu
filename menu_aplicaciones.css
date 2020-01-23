@@ -1,66 +1,77 @@
-#apps{
-    padding-top: 10px;
-    display: flex;
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-    align-items: center;
-}
-.logos{
-    width: 100%;
-    height: 100%;
-}
-.spinner-border {
-    display: inline-block;
-    width: 2rem;
-    height: 2rem;
-    vertical-align: text-bottom;
-    border: .25em solid currentColor;
-    border-right-color: currentcolor;
-    border-right-color: transparent;
-    border-radius: 50%;
-    -webkit-animation: spinner-border .75s linear infinite;
-    animation: spinner-border .75s linear infinite;
-    margin-top: 4em;
-    margin-bottom: 1em; 
+@import url('https://pruebasassets.portaloas.udistrital.edu.co/logo-stylus.css');
+.aplicaciones_menu_container p{
+  margin-bottom: 11px;
+  margin-top: 0;
 }
 
-.hidden{
-    display:none;
-}
-.visible{
-    
-    height: auto;
-    margin: 0 auto;
-    padding: 10px;
-    position: relative;
-    text-align: center;
-    padding-top: 70%;
+.menu-app {
+  border-color: #34495e;
+  border-radius: 7px;
+  border: solid 1px;
+  box-shadow: 0px 0px 8px #888888;
 }
 
-.aplicaciones_menu_container{
-    background: #fff;
-    border: 1px solid #d6dae1;
-    border-color: rgba(0,0,0,.2);
-    color: #000;
-    -webkit-box-shadow:0 2px 10px rgba(48, 90, 208, 0.2);
-    box-shadow: 0 2px 10px rgba(0,0,0,.2);
-    position: absolute;
-    right: 80px;
-    top: 62px;
-    -webkit-border-radius: 2px;
-    border-radius: 2px;
-    overflow-y: auto; 
-    overflow-x: hidden; 
-    height:25em;
-    width:27%;
+.container-aplicativos{
+  height: 88%;
 }
 
-.menu_item{
-    width: 30%;
-    margin-bottom: 10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+.container-aplicativos-scroll{
+  height: none;
+}
+
+.catalogo-button-container{
+  justify-content: center;
+  display: flex;
+  width: 100%;
+  align-items: flex-end;
+}
+
+#catalogo-button-icon{
+  font-size: 40px;
+}
+
+.title-app-menu-div{
+  text-align: center;
+  margin-bottom: 5px;
+  font-size: 21px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.apps_menu_container {
+  background: #fff;
+  border: 1px solid #d6dae1;
+  color: #000;
+  position: fixed;
+  right: 80px;
+  top: 69px;
+  -webkit-border-radius: 2px;
+  right: -100vw;
+  border-radius: 2px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: calc(-139px + 100vh);
+  width: 320px;
+  transition: 0.3s;
+  z-index: 3;
+}
+.menu_is_active {
+  right: 0;
+}
+.app-image-container{
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.image-application{
+  width: 30%;
+  margin-bottom: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.categoria-title {
+  color: white;
 }
 .menu-txt-app{
     width:100%;
@@ -80,7 +91,7 @@
     }
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 966px) {
     .menu_item{
         width: 40%;
         margin-bottom: 10px;
@@ -92,7 +103,7 @@
     }
 }
 
-@media screen and (max-width: 425px) {
+@media screen and (max-width: 673px) {
     .menu_item{
         width: 60%;
         margin-bottom: 10px;
